@@ -60,29 +60,22 @@ public class ArrayHomework {
         System.out.println("Vowels count: " + count4);
 
         //Bonus 1 — Գտնել երկրորդ ամենամեծ թիվը
-        int[] numbersbonus1 = {4, 9, 2, 15, 7, 15, 3, 11, 6, 8};
+        int[] numbersbonus1 = {15, 15, 9, 7, 4};
 
-        int firstmax;
-        int secondmax;
+        int firstMax = numbersbonus1[0];
+        int secondMax = numbersbonus1[0];
 
-        if (numbersbonus1[0] > numbersbonus1[1]) {
-            firstmax = numbersbonus1[0];
-            secondmax = numbersbonus1[1];
-        } else {
-            firstmax = numbersbonus1[1];
-            secondmax = numbersbonus1[0];
-        }
-        for (int i = 2; i < numbersbonus1.length; i++) {
-            if (numbersbonus1[i] > firstmax) {
-                secondmax = firstmax;
-                firstmax = numbersbonus1[i];
-            } else if (numbersbonus1[i] < firstmax
-                    && numbersbonus1[i] > secondmax) {
-                secondmax = numbersbonus1[i];
+        for (int i = 1; i < numbersbonus1.length; i++) {
+            if (numbersbonus1[i] > firstMax) {
+                secondMax = firstMax;
+                firstMax = numbersbonus1[i];
+            } else if (numbersbonus1[i] < firstMax &&
+                    (secondMax == firstMax || numbersbonus1[i] > secondMax)) {
+                secondMax = numbersbonus1[i];
             }
         }
 
-        System.out.println("Second maximum: " + secondmax);
+        System.out.println("Second maximum: " + secondMax);
 
         //Bonus 2 — Հեռացնել կրկնվող թվերը
         int[] numbersbonus2 = {3, 6, 3, 8, 9, 6, 2, 3, 5, 6};
