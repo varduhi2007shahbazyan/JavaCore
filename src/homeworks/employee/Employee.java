@@ -1,29 +1,26 @@
-
 package homeworks.employee;
 
 import java.util.Objects;
 
 public class Employee {
-
     private String name;
     private String surname;
     private String employeeID;
     private double salary;
-    private String company;
+    private Company company;
     private String position;
 
+    public Employee() {
+    }
+
     public Employee(String name, String surname, String employeeID,
-                    double salary, String company, String position) {
+                    double salary, Company company, String position) {
         this.name = name;
         this.surname = surname;
         this.employeeID = employeeID;
         this.salary = salary;
         this.company = company;
         this.position = position;
-    }
-
-    public Employee() {
-
     }
 
     public String getName() {
@@ -58,11 +55,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
@@ -75,28 +72,27 @@ public class Employee {
     }
 
     @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", employeeID='" + employeeID + '\'' +
+                ", salary=" + salary +
+                ", company='" + company.getName() + '\'' +
+                ", position='" + position + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-
         return Objects.equals(employeeID, employee.employeeID);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(employeeID);
-    }
-
-    @Override
-    public String toString() {
-        return "Name: " + name +
-                "\nSurname: " + surname +
-                "\nEmployee ID: " + employeeID +
-                "\nSalary: " + salary +
-                "\nCompany: " + company +
-                "\nPosition: " + position;
     }
 }
